@@ -13,43 +13,26 @@ class GildedRose {
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
             Item item = items[i];
-            if (item.name.equals(AGED_BRIE)) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
+            if (item.name.equals(AGED_BRIE)
+                    || item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
+                        if (item.quality < 50) {
+                            item.quality = item.quality + 1;
 
-                    if (item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
-                        if (item.sellIn < 11) {
-                            if (item.quality < 50) {
-                                item.quality = item.quality + 1;
+                            if (item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
+                                if (item.sellIn < 11) {
+                                    if (item.quality < 50) {
+                                        item.quality = item.quality + 1;
+                                    }
+                                }
+
+                                if (item.sellIn < 6) {
+                                    if (item.quality < 50) {
+                                        item.quality = item.quality + 1;
+                                    }
+                                }
                             }
                         }
-
-                        if (item.sellIn < 6) {
-                            if (item.quality < 50) {
-                                item.quality = item.quality + 1;
-                            }
-                        }
-                    }
-                }
-            } else if (item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-
-                    if (item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
-                        if (item.sellIn < 11) {
-                            if (item.quality < 50) {
-                                item.quality = item.quality + 1;
-                            }
-                        }
-
-                        if (item.sellIn < 6) {
-                            if (item.quality < 50) {
-                                item.quality = item.quality + 1;
-                            }
-                        }
-                    }
-                }
-            } else {
+                    } else {
                 if (item.quality > 0) {
                     if (!item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
                         item.quality = item.quality - 1;
