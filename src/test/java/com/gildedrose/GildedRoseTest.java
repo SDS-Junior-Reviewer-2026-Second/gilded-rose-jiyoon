@@ -178,4 +178,32 @@ public class GildedRoseTest {
 		assertEquals(9, items[0].sellIn);
 		assertEquals(50, items[0].quality);
 	}
+
+	@Test
+	public void noname_sellin_10_quality_10() {
+		// given
+		Item[] items = new Item[] { new Item(NONAME, 10, 10) };
+		GildedRose gildedRose = new GildedRose(items);
+
+		// when
+		gildedRose.updateQuality();
+
+		// then
+		assertEquals(9, items[0].sellIn);
+		assertEquals(9, items[0].quality);
+	}
+
+	@Test
+	public void agedBrie_sellin_5_quality_10() {
+		// given
+		Item[] items = new Item[] { new Item(AGED_BRIE, 5, 10) };
+		GildedRose gildedRose = new GildedRose(items);
+
+		// when
+		gildedRose.updateQuality();
+
+		// then
+		assertEquals(4, items[0].sellIn);
+		assertEquals(11, items[0].quality);
+	}
 }
