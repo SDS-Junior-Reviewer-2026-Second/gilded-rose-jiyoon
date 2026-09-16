@@ -2,8 +2,8 @@ package com.gildedrose;
 
 class GildedRose {
     private static final String AGED_BRIE = "Aged Brie";
-    private static final String BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT = "Backstage passes to a TAFKAL80ETC concert";
-    private static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
+    private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
+    private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
     Item[] items;
 
     public GildedRose(Item[] items) {
@@ -17,7 +17,7 @@ class GildedRose {
                 if (item.quality < 50) {
                     item.quality = item.quality + 1;
                 }
-            } else if (item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
+            } else if (item.name.equals(BACKSTAGE_PASSES)) {
                 if (item.quality < 50) { // 이 부분 브랜치 커버리지가 여전히 가능한지?
                     item.quality = item.quality + 1;
 
@@ -34,13 +34,13 @@ class GildedRose {
                     }
                 }
             } else {
-                if (item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
+                if (item.name.equals(SULFURAS)) {
                 } else if (item.quality > 0) {
                         item.quality = item.quality - 1;
                 }
             }
 
-            if (!item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
+            if (!item.name.equals(SULFURAS)) {
                 item.sellIn = item.sellIn - 1;
             }
 
@@ -51,12 +51,14 @@ class GildedRose {
                     }
                 }
             } else {
-                if (item.sellIn < 0) {
-                    if (item.name.equals(BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT)) {
+                if (item.name.equals(BACKSTAGE_PASSES)) {
+                    if (item.sellIn < 0) {
                         item.quality = item.quality - item.quality;
-                    } else {
+                    }
+                } else {
+                    if (item.sellIn < 0) {
                         if (item.quality > 0) {
-                            if (item.name.equals(SULFURAS_HAND_OF_RAGNAROS)) {
+                            if (item.name.equals(SULFURAS)) {
                                 continue;
                             }
                             item.quality = item.quality - 1;
