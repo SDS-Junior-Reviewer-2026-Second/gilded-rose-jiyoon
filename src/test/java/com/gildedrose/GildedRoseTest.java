@@ -164,4 +164,18 @@ public class GildedRoseTest {
 		assertEquals(-1, items[0].sellIn);
 		assertEquals(0, items[0].quality);
 	}
+
+	@Test
+	public void backstage_pass_sellin_10_quality_50() {
+		// given
+		Item[] items = new Item[] { new Item(BACKSTAGE_PASS, 10, 50) };
+		GildedRose gildedRose = new GildedRose(items);
+
+		// when
+		gildedRose.updateQuality();
+
+		// then
+		assertEquals(9, items[0].sellIn);
+		assertEquals(50, items[0].quality);
+	}
 }
